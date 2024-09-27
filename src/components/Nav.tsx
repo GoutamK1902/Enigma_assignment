@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { LuCircleDotDashed } from "react-icons/lu";
-import mediaQueries from "../utils/mediaQueries.mjs";
+import mediaQueries from "../utils/mediaQueries";
 
 const Nav = () => {
   const navBodyRef = useRef<HTMLDivElement>(null);
@@ -16,7 +16,6 @@ const Nav = () => {
 
     mediaQueries.forEach(
       ({
-        mqCondtion,
         navHeight,
         navWidth,
         navTranslateX,
@@ -24,8 +23,9 @@ const Nav = () => {
         navLinkTranslateY,
         linkFontSize,
         linkHeight,
+        mqCondition,
       }) => {
-        mm.add(`${mqCondtion}`, () => {
+        mm.add(`${mqCondition}`, () => {
           const tl = gsap.timeline();
           gsap.to(overlayRef.current, {
             opacity: 1,
@@ -153,10 +153,8 @@ const Nav = () => {
         ref={navBodyRef}
         className="
                 fixed
-                -bottom-[100%]
-                
-                -left-[50%]
-        
+                -bottom-[50%]
+                -left-[100%]
                 bg-accent
                 rounded-full
                 z-[1000]
@@ -171,17 +169,17 @@ const Nav = () => {
                 "
         >
           <div>
-            <div className="lineHeight relative  overflow-visible ">
+            <div className="lineHeight relative text-nowrap overflow-visible ">
               <span className="navLink absolute top-0 left-0">
                 <Link href={""}>HOME</Link>
               </span>
             </div>
-            <div className="lineHeight relative  overflow-visible ">
+            <div className="lineHeight relative text-nowrap overflow-visible ">
               <span className="navLink absolute top-0 left-0">
                 <Link href={""}>Our team</Link>
               </span>
             </div>
-            <div className="lineHeight relative  overflow-visible ">
+            <div className="lineHeight relative text-nowrap overflow-visible ">
               <span className="navLink absolute top-0 left-0">
                 <Link href={""}>Reach us</Link>
               </span>
