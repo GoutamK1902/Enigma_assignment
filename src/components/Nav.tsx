@@ -127,7 +127,7 @@ const Nav = () => {
         position: "fixed",
       });
       tl.to(navBodyRef.current, {
-        height: "150vh",
+        height: "165vh",
         width: "200vw",
         duration: 0.5,
         delay: 0,
